@@ -20,7 +20,11 @@ export default function RootLayout({ children }) {
       className={`${notoSerifBengali.className}  h-full antialiased`}
     > <div><Header></Header>
     </div>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <main className="mx-auto max-w-6xl px-4">
+  {children}
+</main>
+</body>
     </html>
   );
 }
