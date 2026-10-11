@@ -1,10 +1,14 @@
 import Link from "next/link";
-import { getCategories } from "@/lib/api";
+import { getCategories, getProducts } from "@/lib/api";
 import NavLinks from "./Navlinks";
+import PriceTicker from "./PriceTicker";
 
 
 export default async function Header() {
-  const categories = await getCategories();
+  const [categories, products] = await Promise.all([
+  getCategories(),
+  getProducts(),
+]);
 
   const date = new Date().toLocaleDateString("bn-BD", {
     dateStyle: "full",
@@ -62,6 +66,13 @@ export default async function Header() {
       <div className="border-t border-[#e5ebe7]">
         <NavLinks categories={categories} />
       </div>
+    {/* দ্বিতীয় row: category links */}
+<div className="border-t border-[#e5ebe7]">
+  <NavLinks categories={categories} />
+</div>
+
+{/* তৃতীয় row: price ticker */}
+<PriceTicker products={products} />
     </header>
   );
 }
