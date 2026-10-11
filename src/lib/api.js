@@ -1,0 +1,15 @@
+const BASE_URL = "https://api.api-store.workers.dev/api/bazardor";
+
+export async function getCategories() {
+  const response = await fetch(`${BASE_URL}/categories`, {
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error("ক্যাটাগরি লোড করা যায়নি");
+  }
+
+  const categories = await response.json();
+
+  return categories;
+}
