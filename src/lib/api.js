@@ -13,3 +13,14 @@ export async function getCategories() {
 
   return categories;
 }
+export async function getProducts() {
+  const response = await fetch(`${BASE_URL}/products`, {
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error("পণ্যের তথ্য লোড করা যায়নি");
+  }
+
+  return response.json();
+}
