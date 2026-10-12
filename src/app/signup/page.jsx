@@ -105,7 +105,7 @@ export default function SignUpPage() {
               autoComplete="email"
               placeholder="you@example.com"
               required
-              className="input w-full border-[#e5ebe7] bg-white"
+              className="input w-full border-[#e5ebe7] bg-white text-[#202820] placeholder:text-gray-400"
             />
           </div>
 
@@ -122,7 +122,7 @@ export default function SignUpPage() {
               placeholder="কমপক্ষে ৮ অক্ষর"
               required
               minLength={8}
-              className="input w-full border-[#e5ebe7] bg-white"
+             className="input w-full border-[#e5ebe7] bg-white text-[#202820] placeholder:text-gray-400"
             />
           </div>
 
@@ -138,7 +138,7 @@ export default function SignUpPage() {
               autoComplete="new-password"
               placeholder="আবার লিখুন"
               required
-              className="input w-full border-[#e5ebe7] bg-white"
+             className="input w-full border-[#e5ebe7] bg-white text-[#202820] placeholder:text-gray-400"
             />
           </div>
 
