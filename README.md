@@ -181,6 +181,4 @@ To deploy your own copy:
 5. Ensure the deployment can connect to MongoDB.
 6. Deploy the project.
 
-## Author
 
-[jstashin](https://github.com/jstashin)
