@@ -9,12 +9,15 @@ export async function getCategories() {
     throw new Error("ক্যাটাগরি লোড করা যায়নি");
   }
 
-  const categories = await response.json();
-
-  return categories;
+  return response.json();
 }
-export async function getProducts() {
-  const response = await fetch(`${BASE_URL}/products`, {
+
+export async function getProducts(category) {
+  const endpoint = category
+    ? `/products?category=${encodeURIComponent(category)}`
+    : "/products";
+
+  const response = await fetch(`${BASE_URL}${endpoint}`, {
     cache: "no-store",
   });
 
