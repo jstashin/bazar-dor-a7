@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
+import SocialLogin from "@/components/SocialLogin";
+import { HiArrowLeft } from "react-icons/hi";
 
 export default function SignUpPage() {
   const [loading, setLoading] = useState(false);
@@ -71,7 +73,7 @@ export default function SignUpPage() {
         </h1>
 
         <p className="mt-2 text-sm text-[#687169]">
-          নিজের অ্যাকাউন্ট থেকে বাজারের বিস্তারিত দাম দেখুন।
+         বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।
         </p>
       </div>
 
@@ -158,6 +160,7 @@ export default function SignUpPage() {
             )}
           </button>
         </form>
+        <SocialLogin />
 
         <p className="mt-5 text-center text-sm text-[#687169]">
           অ্যাকাউন্ট আছে?{" "}
@@ -168,9 +171,13 @@ export default function SignUpPage() {
       </div>
 
       <div className="mt-5 text-center">
-        <Link href="/" className="text-sm text-[#687169] hover:text-[#008b3e]">
-          ← হোম পেজে ফিরে যান
-        </Link>
+        <Link
+  href="/"
+  className="inline-flex items-center gap-2 text-sm text-[#687169] hover:text-[#008b3e]"
+>
+  <HiArrowLeft size={18} />
+  হোম পেজে ফিরে যান
+</Link>
       </div>
     </section>
   );

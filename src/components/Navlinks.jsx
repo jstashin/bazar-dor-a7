@@ -7,11 +7,7 @@ export default function NavLinks({ categories }) {
   const pathname = usePathname();
 
   return (
-    <nav
-      aria-label="পণ্যের ক্যাটাগরি"
-      className="mx-auto flex max-w-6xl items-center gap-2
-                 overflow-x-auto px-4 py-2"
-    >
+    <nav aria-label="পণ্যের ক্যাটাগরি"className="mx-auto flex max-w-6xl items-center gap-2 overflow-x-auto px-4 py-2">
       {categories.map((category) => {
         const href = `/category/${category.slug}`;
         const isActive = pathname === href;

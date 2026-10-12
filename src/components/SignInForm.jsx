@@ -1,22 +1,30 @@
 "use client";
-
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
+import SocialLogin from "@/components/SocialLogin";
+import { HiArrowLeft } from "react-icons/hi";
 
 export default function SignInForm({ reason }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+
   useEffect(() => {
-    if (reason === "protected") {
-      toast.error("বিস্তারিত দেখতে আগে সাইন ইন করুন", {
-        id: "protected-route",
-      });
-    }
-  }, [reason]);
+  if (reason === "protected") {
+    toast.error("এই পেজ দেখতে আগে সাইন ইন করুন", {
+      id: "protected-route",
+    });
+  }
+
+  if (reason === "social-error") {
+    toast.error("Social login সম্পন্ন হয়নি। আবার চেষ্টা করুন।", {
+      id: "social-login-error",
+    });
+  }
+}, [reason]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,7 +74,7 @@ export default function SignInForm({ reason }) {
         </h1>
 
         <p className="mt-2 text-sm text-[#687169]">
-          বিস্তারিত দাম ও বাজারের তথ্য দেখতে অ্যাকাউন্টে ঢুকুন।
+          বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
         </p>
       </div>
 
@@ -98,7 +106,7 @@ export default function SignInForm({ reason }) {
               name="password"
               type="password"
               autoComplete="current-password"
-              placeholder="আপনার পাসওয়ার্ড"
+              placeholder="কমপক্ষে ৮ অক্ষর"
               required
               className="input w-full border-[#e5ebe7] bg-white text-[#202820] placeholder:text-gray-400"
             />
@@ -119,19 +127,24 @@ export default function SignInForm({ reason }) {
             )}
           </button>
         </form>
+        <SocialLogin />
 
         <p className="mt-5 text-center text-sm text-[#687169]">
           অ্যাকাউন্ট নেই?{" "}
           <Link href="/signup" className="font-medium text-[#008b3e]">
-            অ্যাকাউন্ট তৈরি করুন
+            সাইন আপ করুন
           </Link>
         </p>
       </div>
 
       <div className="mt-5 text-center">
-        <Link href="/" className="text-sm text-[#687169] hover:text-[#008b3e]">
-          ← হোম পেজে ফিরে যান
-        </Link>
+        <Link
+  href="/"
+  className="inline-flex items-center gap-2 text-sm text-[#687169] hover:text-[#008b3e]"
+>
+  <HiArrowLeft size={18} />
+  হোম পেজে ফিরে যান
+</Link>
       </div>
     </section>
   );

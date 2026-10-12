@@ -13,7 +13,7 @@ export default function ProductSection({
         {direction && (
           <span
             className={`text-sm ${
-              direction === "up" ? "text-green-600" : "text-red-600"
+              direction === "up" ? "text-red-600" : "text-green-600"
             }`}
           >
             {direction === "up" ? "▲" : "▼"}

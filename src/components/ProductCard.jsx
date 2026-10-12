@@ -9,9 +9,9 @@ export default function ProductCard({ product }) {
 
   const badgeColor =
     direction === "up"
-      ? "text-green-600"
+      ? "text-red-600"
       : direction === "down"
-        ? "text-red-600"
+        ? "text-green-600"
         : "text-gray-600";
 
   const percentage = Math.abs(product.change.pct).toLocaleString("bn-BD", {

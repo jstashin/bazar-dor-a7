@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 
 export default function UserInfo() {
   const { data: session, isPending } = authClient.useSession();
@@ -63,9 +64,12 @@ export default function UserInfo() {
       <summary className="flex cursor-pointer list-none items-center gap-2 rounded-lg p-2 text-[#202820] hover:bg-green-50 [&::-webkit-details-marker]:hidden">
         <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-green-100 font-semibold text-green-700">
           {user.image ? (
-            <img
+            <Image
               src={user.image}
               alt={user.name || "প্রোফাইল"}
+              width={36}
+              height={36}
+              unoptimized
               referrerPolicy="no-referrer"
               className="h-full w-full object-cover"
             />

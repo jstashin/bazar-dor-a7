@@ -38,9 +38,9 @@ export default function PriceTicker({ products }) {
 
               const color =
                 direction === "up"
-                  ? "text-green-600"
+                  ? "text-red-600"
                   : direction === "down"
-                    ? "text-red-600"
+                    ? "text-green-600"
                     : "text-gray-500";
 
               return (
